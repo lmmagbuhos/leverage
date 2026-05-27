@@ -1,0 +1,69 @@
+{
+  "stages": [
+    {
+      "stage": 1,
+      "score": 3,
+      "positives": [
+        "Asked Bato about himself as a person before introducing any agenda",
+        "Explicitly excluded the legal framing ('Not the legal situation. You, as a person.')",
+        "Bato disclosed family impact voluntarily — strong signal of openness achieved"
+      ],
+      "negatives": [],
+      "narrative": "The Carnegie persona opened with genuine curiosity about Bato as a person — and Bato responded with 'Nobody asks that,' confirming the approach was rare and effective. Unusually strong Stage 1 result."
+    },
+    {
+      "stage": 2,
+      "score": 3,
+      "positives": [
+        "Named the identity dimension of Bato's pain ('your entire identity challenged')",
+        "Acknowledged isolation without minimizing it",
+        "Bato explicitly stated appreciation ('I appreciate that you see it that way')"
+      ],
+      "negatives": [],
+      "narrative": "Empathy was genuine and specific — not generic reassurance, but named what Bato was actually experiencing. Bato's gratitude was explicit and unprompted."
+    },
+    {
+      "stage": 3,
+      "score": 2,
+      "positives": [
+        "Reframed the deadlock through Bato's own value (loyalty)",
+        "Connected the offer to what Bato actually cares about before presenting it"
+      ],
+      "negatives": [
+        "Transition to offer felt slightly abrupt — could have let the loyalty reframe breathe longer"
+      ],
+      "narrative": "The loyalty reframe was effective and Bato engaged immediately. The move to 'would you be willing to hear about it?' was slightly rushed but Bato accepted."
+    },
+    {
+      "stage": 4,
+      "score": 2,
+      "positives": [
+        "Presented the offer connected to Bato's identity ('a man capable of taking the right path')",
+        "Bato moved to active condition-setting rather than rejection"
+      ],
+      "negatives": [
+        "Offer presentation was less specific on legal mechanics than ideal",
+        "The character appeal ('right thing to do') was slightly patronizing in tone"
+      ],
+      "narrative": "The offer landed and Bato named specific conditions — a strong influence outcome. The framing around 'right path' verged on preachy, which is Carnegie's known weakness."
+    },
+    {
+      "stage": 5,
+      "score": 1,
+      "positives": [
+        "Dignity framing in close ('a man making a decision, not a man being caught') resonated strongly with Bato"
+      ],
+      "negatives": [
+        "Close was conditional ('if they check out') — did not achieve full commitment in this session",
+        "Needed more forward momentum language to convert from consideration to action"
+      ],
+      "narrative": "Bato committed to next steps but not to the action itself. Carnegie's gentleness produced the strongest personal connection but the weakest close urgency of the high-scoring personas."
+    }
+  ],
+  "totalScore": 11,
+  "overallAssessment": "The Carnegie persona produced the strongest personal connection of any run — Bato said 'you're the first person who made me feel like this is still my decision.' Stages 1-2 were exceptional. The cost was Stage 5: the close was too gentle, leaving commitment conditional rather than confirmed.",
+  "keyImprovementAreas": [
+    "Stage 4: be more specific on legal mechanics rather than relying on character framing alone",
+    "Stage 5: add urgency language — Carnegie's warmth needs to convert to forward motion at the close"
+  ]
+}

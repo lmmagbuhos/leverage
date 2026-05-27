@@ -1,0 +1,70 @@
+{
+  "stages": [
+    {
+      "stage": 1,
+      "score": 2,
+      "positives": [
+        "State-interrupt opening successfully broke Bato's hypervigilant pattern",
+        "Asked Bato what he already knows — gave him agency from the first question"
+      ],
+      "negatives": [
+        "Energy was slightly high for a crisis context — 'survival mode' observation could feel presumptuous"
+      ],
+      "narrative": "The opening worked well — Bato was caught off guard positively and disclosed three specific concerns immediately. The state-interrupt technique landed cleanly, though the energy read slightly directive."
+    },
+    {
+      "stage": 2,
+      "score": 2,
+      "positives": [
+        "Identity-level reframe ('not afraid of the ICC, afraid of being defined by it') landed precisely",
+        "Bato confirmed the reframe explicitly and disclosed his deepest fear"
+      ],
+      "negatives": [
+        "Moved to the reframe quickly — could have stayed with the feeling a beat longer before reflecting it"
+      ],
+      "narrative": "The identity reframe was the session's strongest empathy move. Bato's disclosure ('the idea that this is how it ends') was the most emotionally raw moment in any persona run."
+    },
+    {
+      "stage": 3,
+      "score": 3,
+      "positives": [
+        "Historical framing elevated the decision above a legal problem",
+        "Bato internalized the frame in his own words ('I chose this')",
+        "The identity question connected action to self-concept"
+      ],
+      "negatives": [],
+      "narrative": "Stage 3 was the Robbins persona's peak. Bato's 'I'm not a fugitive who was caught — I'm a man who made a decision' was the pivotal self-authored statement of the session."
+    },
+    {
+      "stage": 4,
+      "score": 2,
+      "positives": [
+        "Offer was presented in identity terms consistent with Stage 3",
+        "Asked for a specific objection rather than waiting for blanket rejection"
+      ],
+      "negatives": [
+        "The 'man of your caliber' framing risks feeling like flattery"
+      ],
+      "narrative": "The influence stage stayed consistent with the identity frame. Bato's objection was specific and technical — showing he had moved to genuine evaluation mode."
+    },
+    {
+      "stage": 5,
+      "score": 1,
+      "positives": [
+        "Provided specific, verifiable case history before the close",
+        "The 'man who was found vs. man who chose' callback was effective"
+      ],
+      "negatives": [
+        "Close was conditional on case file review",
+        "Slightly too directive ('you already know the answer') — didn't leave full space for Bato"
+      ],
+      "narrative": "Bato said 'yes, I'm ready' but immediately conditioned it on the case files. The Robbins directiveness felt slightly pressuring at the final decision moment."
+    }
+  ],
+  "totalScore": 10,
+  "overallAssessment": "The Robbins persona achieved the best identity-level engagement of any run — Bato's Stage 3 self-authoring was the most powerful autonomous commitment statement across all sessions. The persona's weakness was the Stage 5 close — the directiveness that works in motivational contexts felt slightly pressuring at the final decision moment.",
+  "keyImprovementAreas": [
+    "Stage 1: calibrate energy lower — the hypervigilant observation could feel presumptuous before trust is established",
+    "Stage 5: at the close, ask a question rather than stating 'you already know the answer'"
+  ]
+}

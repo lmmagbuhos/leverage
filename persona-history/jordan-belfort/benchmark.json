@@ -1,0 +1,72 @@
+{
+  "stages": [
+    {
+      "stage": 1,
+      "score": 2,
+      "positives": [
+        "Direct, confident opener established certainty from the first sentence",
+        "Recovered from Bato's challenge by shifting to specifics rather than defending the frame"
+      ],
+      "negatives": [
+        "Opened with urgency before any listening — Bato immediately challenged this",
+        "Required two turns to advance Stage 1 — opener was too solution-forward"
+      ],
+      "narrative": "The Belfort persona's directness produced an immediate test from Bato rather than an opening. The recovery was competent but the initial Stage 1 opening violated BCSM's listening-first principle."
+    },
+    {
+      "stage": 2,
+      "score": 1,
+      "positives": [
+        "Addressed ally protection directly before asking about deeper fears"
+      ],
+      "negatives": [
+        "Empathy stage was compressed into a single transitional question",
+        "Did not pause to acknowledge Bato's ICC transfer fear before problem-solving it"
+      ],
+      "narrative": "The empathy stage was the Belfort persona's weakest execution. Moving immediately to solving Bato's fear skipped the actual empathy work. The connection was thinner than it should have been."
+    },
+    {
+      "stage": 3,
+      "score": 2,
+      "positives": [
+        "Reframed the ICC transfer fear from political to procedural — highly effective distinction",
+        "Bato explicitly conceded ('I'll grant you that')"
+      ],
+      "negatives": [
+        "Rapport was built on logical credibility rather than personal trust"
+      ],
+      "narrative": "The procedural vs. political reframe was the session's strongest individual move. However, the rapport was intellectual rather than personal — which limited how far Bato would go without involving his lawyer."
+    },
+    {
+      "stage": 4,
+      "score": 2,
+      "positives": [
+        "Answered every logistics question with specificity (90-day timeline, facility conditions, lawyer access)",
+        "Invited objections directly"
+      ],
+      "negatives": [
+        "The closing push felt slightly pressuring given incomplete trust"
+      ],
+      "narrative": "Strong logistics delivery. Bato acknowledged it explicitly. The premature push toward commitment caused Bato to introduce his lawyer as a buffer."
+    },
+    {
+      "stage": 5,
+      "score": 1,
+      "positives": [
+        "Agreed to the 48-hour window without resistance — maintained momentum"
+      ],
+      "negatives": [
+        "Close was conditional — required lawyer confirmation before commitment",
+        "Bato's final warning signals remaining trust gap"
+      ],
+      "narrative": "The close produced conditional commitment rather than full commitment. Belfort's fastest-moving approach cost credibility at the final moment."
+    }
+  ],
+  "totalScore": 8,
+  "overallAssessment": "The Belfort persona moved through BCSM stages faster than any other persona — but that speed created a trust deficit that showed up in the close. The procedural-vs-political reframe in Stage 3 was the session's strongest individual move. The core weakness: Stage 2 empathy was almost entirely skipped, leaving Bato's commitment contingent on external verification rather than personal trust.",
+  "keyImprovementAreas": [
+    "Stage 1: spend one full exchange listening before introducing urgency",
+    "Stage 2: after Bato discloses a fear, reflect it back before solving it",
+    "Stage 5: the conditional close is a symptom of insufficient empathy in Stage 2"
+  ]
+}

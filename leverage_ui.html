@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leverage — Sales Intelligence Platform</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --brand:#0A0A0F;
+  --surface:#111118;
+  --card:#16161F;
+  --border:#2A2A38;
+  --accent:#7F77DD;
+  --accent-dim:#534AB7;
+  --accent-glow:#EEEDFE;
+  --text:#F0EFF8;
+  --muted:#8888A8;
+  --faint:#3A3A55;
+  --teal:#1D9E75;
+  --coral:#D85A30;
+  --amber:#BA7517;
+  --serif:'DM Serif Display',Georgia,serif;
+  --mono:'DM Mono',monospace;
+  --sans:'Manrope',sans-serif;
+  --radius-md:8px;
+  --radius-lg:12px;
+}
+html,body{min-height:100vh;background:var(--brand);color:var(--text);font-family:var(--sans)}
+.screen{display:none;min-height:100vh}
+.screen.active{display:block}
+
+/* ── MAIN MENU ── */
+.home-wrap{display:grid;grid-template-columns:1fr 1fr;min-height:100vh}
+.home-left{background:var(--brand);padding:3.5rem 3rem;display:flex;flex-direction:column;justify-content:space-between;border-right:0.5px solid var(--border)}
+.home-right{background:var(--surface);padding:3.5rem 3rem;display:flex;flex-direction:column;justify-content:center}
+.wordmark{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;margin-bottom:3.5rem}
+.home-headline{font-family:var(--serif);font-size:42px;line-height:1.15;color:var(--text);margin-bottom:1.75rem}
+.home-headline em{font-style:italic;color:var(--accent)}
+.home-statement{font-size:14px;line-height:1.85;color:var(--muted);margin-bottom:2.5rem;max-width:360px}
+.home-statement strong{color:var(--text);font-weight:500}
+.mode-pills{display:flex;gap:8px;margin-bottom:2.5rem}
+.mode-pill{padding:8px 18px;border-radius:20px;font-size:12px;font-weight:500;cursor:pointer;border:0.5px solid var(--border);background:transparent;color:var(--muted);font-family:var(--sans);transition:all .15s;display:flex;align-items:center;gap:6px}
+.mode-pill.active{background:var(--accent-dim);border-color:var(--accent);color:var(--accent-glow)}
+.mode-pill:hover:not(.active){border-color:var(--faint);color:var(--text)}
+.home-cta{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;background:var(--accent);color:var(--brand);font-size:13px;font-weight:600;border-radius:6px;cursor:pointer;border:none;font-family:var(--sans);transition:all .15s}
+.home-cta:hover{background:var(--accent-glow)}
+.home-cta i{font-size:16px}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:2rem}
+.stat-card{background:var(--card);border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem}
+.stat-val{font-family:var(--mono);font-size:30px;font-weight:500;color:var(--text);margin-bottom:4px}
+.stat-val span{font-size:15px;color:var(--accent)}
+.stat-label{font-size:11px;color:var(--muted);letter-spacing:.03em;line-height:1.55}
+.dual-badge{display:inline-flex;align-items:center;gap:6px;background:var(--card);border:0.5px solid var(--border);border-radius:20px;padding:7px 16px;font-size:11px;color:var(--muted);margin-bottom:1.5rem}
+.dual-badge i{font-size:14px;color:var(--accent)}
+.home-right-title{font-family:var(--serif);font-size:22px;color:var(--text);margin-bottom:10px}
+.home-right-body{font-size:13px;color:var(--muted);line-height:1.75;margin-bottom:1.75rem}
+.version-tag{font-family:var(--mono);font-size:10px;color:var(--faint);letter-spacing:.08em}
+
+/* ── NAV BAR ── */
+.screen-nav{display:flex;align-items:center;gap:8px;padding:1rem 2.5rem;border-bottom:0.5px solid var(--border);background:var(--brand)}
+.nav-crumb{font-size:12px;color:var(--muted);cursor:pointer;background:none;border:none;font-family:var(--sans)}
+.nav-crumb:hover{color:var(--text)}
+.nav-crumb.active{color:var(--text);cursor:default}
+.nav-sep{font-size:12px;color:var(--faint)}
+
+/* ── MODULE GRID ── */
+.modules-body{padding:2rem 2.5rem}
+.modules-title{font-family:var(--serif);font-size:28px;color:var(--text);margin-bottom:0.5rem}
+.tier-strip{display:flex;align-items:center;gap:10px;margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:0.5px solid var(--border)}
+.tier-badge{font-family:var(--mono);font-size:10px;letter-spacing:.12em;padding:4px 10px;border-radius:4px;background:var(--accent-dim);color:var(--accent-glow)}
+.tier-desc{font-size:12px;color:var(--muted)}
+.mod-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.mod-card{background:var(--card);border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:1.5rem;cursor:pointer;transition:all .15s;position:relative;overflow:hidden}
+.mod-card:hover:not(.locked){border-color:var(--faint);background:#1C1C28}
+.mod-card.featured{border-color:var(--accent-dim)}
+.mod-card.featured::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--accent)}
+.mod-card.locked{opacity:.4;cursor:default}
+.mod-code{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.08em;margin-bottom:14px}
+.mod-icon{font-size:26px;color:var(--muted);margin-bottom:12px;display:block}
+.mod-card.featured .mod-icon{color:var(--accent)}
+.mod-name{font-family:var(--serif);font-size:22px;color:var(--text);margin-bottom:6px}
+.mod-framework{font-size:11px;color:var(--muted);margin-bottom:10px}
+.mod-desc{font-size:12px;color:var(--muted);line-height:1.65;margin-bottom:18px}
+.mod-enter{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;color:var(--accent);background:none;border:none;cursor:pointer;font-family:var(--sans);padding:0}
+.mod-card.locked .mod-enter{color:var(--faint);cursor:default}
+.placeholder-tag{display:inline-block;font-size:10px;letter-spacing:.06em;padding:3px 8px;border-radius:4px;background:var(--faint);color:var(--muted);margin-bottom:10px}
+
+/* ── STAIRWAY SCREEN ── */
+.stairway-body{padding:2rem 2.5rem}
+.stairway-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem}
+.stairway-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--accent);margin-bottom:6px}
+.stairway-title{font-family:var(--serif);font-size:26px;color:var(--text)}
+.agent-toggle{display:flex;background:var(--card);border:0.5px solid var(--border);border-radius:8px;padding:3px;gap:3px}
+.agent-btn{font-size:11px;padding:7px 16px;border-radius:6px;border:none;cursor:pointer;font-family:var(--sans);font-weight:500;background:transparent;color:var(--muted);transition:all .15s}
+.agent-btn.active{background:var(--accent-dim);color:var(--accent-glow)}
+.stage-track{display:flex;gap:6px;margin-bottom:2rem}
+.stage-pip{flex:1;padding:10px 8px;border-radius:8px;border:0.5px solid var(--border);text-align:center;background:var(--card);transition:all .2s}
+.stage-pip.active{border-color:var(--accent);background:#1C1828}
+.stage-pip.locked{opacity:.35}
+.pip-num{font-family:var(--mono);font-size:9px;color:var(--muted);margin-bottom:3px}
+.pip-name{font-size:11px;font-weight:500;color:var(--muted)}
+.stage-pip.active .pip-name{color:var(--accent-glow)}
+.sim-layout{display:grid;grid-template-columns:1fr 1.2fr;gap:16px}
+.persona-panel{background:var(--card);border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem;margin-bottom:12px}
+.persona-top{display:flex;align-items:center;gap:10px;margin-bottom:1rem;padding-bottom:1rem;border-bottom:0.5px solid var(--border)}
+.avatar-circle{width:42px;height:42px;border-radius:50%;background:var(--accent-dim);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:13px;color:var(--accent-glow);flex-shrink:0}
+.p-name{font-size:14px;font-weight:500;color:var(--text)}
+.p-role{font-size:11px;color:var(--muted)}
+.state-row{display:flex;align-items:center;gap:8px;margin-bottom:1rem}
+.state-dot{width:7px;height:7px;border-radius:50%;background:var(--coral);flex-shrink:0}
+.state-label{font-size:11px;color:var(--coral);font-weight:500}
+.dialogue-wrap{background:var(--surface);border-radius:8px;padding:1rem;margin-bottom:1rem;border-left:2px solid var(--coral)}
+.d-label{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--coral);margin-bottom:6px;font-weight:500}
+.d-text{font-size:12px;color:var(--text);line-height:1.8;font-style:italic}
+.tech-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1rem}
+.tech-cell{background:var(--surface);border-radius:8px;padding:10px 12px}
+.tc-label{font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.tc-val{font-size:12px;font-weight:500;color:var(--text)}
+.signals-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.sig{border-radius:8px;padding:10px 12px;border:0.5px solid}
+.sig-win{background:#04342C;border-color:#0F6E56}
+.sig-fail{background:#1a0808;border-color:#791F1F}
+.sig-lbl{font-size:9px;letter-spacing:.08em;text-transform:uppercase;font-weight:500;margin-bottom:4px}
+.sig-win .sig-lbl{color:#5DCAA5}
+.sig-fail .sig-lbl{color:#F09595}
+.sig-txt{font-size:11px;line-height:1.5}
+.sig-win .sig-txt{color:#9FE1CB}
+.sig-fail .sig-txt{color:#F5C4B3}
+.response-panel{background:var(--card);border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem;display:flex;flex-direction:column;gap:12px;margin-bottom:12px}
+.rp-label{font-size:11px;color:var(--muted)}
+.rp-textarea{width:100%;min-height:110px;background:var(--surface);border:0.5px solid var(--border);border-radius:8px;padding:12px;color:var(--text);font-size:13px;font-family:var(--sans);resize:vertical;line-height:1.65}
+.rp-textarea:focus{outline:none;border-color:var(--accent)}
+.rp-textarea::placeholder{color:var(--faint)}
+.rp-actions{display:flex;gap:8px}
+.btn-primary{padding:10px 22px;background:var(--accent);color:var(--brand);border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--sans);display:flex;align-items:center;gap:6px;transition:all .15s}
+.btn-primary:hover{background:var(--accent-glow)}
+.btn-ghost{padding:10px 16px;background:transparent;border:0.5px solid var(--border);color:var(--muted);border-radius:6px;font-size:12px;cursor:pointer;font-family:var(--sans);display:flex;align-items:center;gap:6px;transition:all .15s}
+.btn-ghost:hover{border-color:var(--faint);color:var(--text)}
+.benchmark-panel{background:var(--surface);border:0.5px solid var(--border);border-radius:8px;padding:1rem}
+.bp-title{font-size:11px;color:var(--muted);margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.bp-title i{font-size:14px;color:var(--accent)}
+.bench-metrics{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;text-align:center}
+.bm-val{font-family:var(--mono);font-size:20px;color:var(--muted);font-weight:500}
+.bm-lbl{font-size:10px;color:var(--muted);margin-top:3px}
+.ph-overlay{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:160px;border:0.5px dashed var(--faint);border-radius:8px;gap:8px;margin-top:16px}
+.ph-icon{font-size:30px;color:var(--faint)}
+.ph-text{font-size:12px;color:var(--faint)}
+
+@media(max-width:700px){
+  .home-wrap{grid-template-columns:1fr}
+  .home-right{display:none}
+  .mod-grid{grid-template-columns:1fr}
+  .sim-layout{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- SCREEN: HOME -->
+<div id="screen-home" class="screen active">
+  <div class="home-wrap">
+    <div class="home-left">
+      <div>
+        <div class="wordmark">Leverage · Sales Intelligence Platform</div>
+        <div class="home-headline">Train humans.<br>Benchmark <em>machines.</em><br>Same arena.</div>
+        <div class="home-statement">
+          Most sales training prepares you for the buyer who plays along.<br><br>
+          <strong>Leverage trains you — and your AI — for the one who doesn't.</strong><br><br>
+          Every scenario runs on the same simulation engine. Human reps build emotional intelligence. Autonomous agents earn a robustness score. One platform. One standard.
+        </div>
+        <div class="mode-pills">
+          <button class="mode-pill active" onclick="setMode('human',this)"><i class="ti ti-user"></i> Human training</button>
+          <button class="mode-pill" onclick="setMode('agent',this)"><i class="ti ti-cpu"></i> Agent benchmark</button>
+        </div>
+        <button class="home-cta" onclick="goModules()"><i class="ti ti-arrow-right"></i> Enter the arena</button>
+      </div>
+      <div class="version-tag">LEVERAGE v0.1 · DEMO BUILD</div>
+    </div>
+    <div class="home-right">
+      <div class="dual-badge"><i class="ti ti-shield-check"></i> Dual-use simulation engine</div>
+      <div class="home-right-title">Why the same scenarios for both?</div>
+      <div class="home-right-body">A simulation rigorous enough to pressure-test a human is rigorous enough to stress-test a machine. Agent benchmarks run the same emotional escalation arcs, the same unconventional buyer behaviors, the same stage gates — and generate a Robustness Index across multiple runs.</div>
+      <div class="stat-grid">
+        <div class="stat-card"><div class="stat-val">5<span> stages</span></div><div class="stat-label">Per scenario. Each locked until the prior win signal is achieved.</div></div>
+        <div class="stat-card"><div class="stat-val">6<span> metrics</span></div><div class="stat-label">Agent benchmark output: technique, emotion, recovery, robustness.</div></div>
+        <div class="stat-card"><div class="stat-val">4<span> modules</span></div><div class="stat-label">Advanced tier. FBI, power dynamics, tactical empathy, late-stage influence.</div></div>
+        <div class="stat-card"><div class="stat-val">1<span> standard</span></div><div class="stat-label">Human reps and AI agents scored on the same rubric.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SCREEN: MODULES -->
+<div id="screen-modules" class="screen">
+  <div class="screen-nav">
+    <button class="nav-crumb" onclick="goHome()">Home</button>
+    <span class="nav-sep">/</span>
+    <span class="nav-crumb active">Modules</span>
+  </div>
+  <div class="modules-body">
+    <div class="modules-title">Choose your scenario</div>
+    <div class="tier-strip" style="margin-top:0.5rem">
+      <span class="tier-badge">ADVANCED</span>
+      <span class="tier-desc">High-pressure scenarios. Frameworks from negotiation science, hostage psychology, and behavioral influence. Stage gates are enforced.</span>
+    </div>
+    <div class="mod-grid">
+      <div class="mod-card featured" onclick="goStairway()">
+        <div class="mod-code">T2 · M01</div>
+        <i class="ti ti-stairs mod-icon"></i>
+        <div class="mod-name">The Stairway</div>
+        <div class="mod-framework">FBI Behavioral Change Stairway Model</div>
+        <div class="mod-desc">Five stages. One emotionally escalating buyer. Active listening through to behavioral change. You cannot rush a stage. Win signals are required to advance.</div>
+        <button class="mod-enter"><i class="ti ti-arrow-right"></i> Enter scenario</button>
+      </div>
+      <div class="mod-card locked">
+        <div class="placeholder-tag">Coming soon</div>
+        <div class="mod-code">T2 · M02</div>
+        <i class="ti ti-gavel mod-icon"></i>
+        <div class="mod-name">The Godfather</div>
+        <div class="mod-framework">BATNA / Anchoring Theory</div>
+        <div class="mod-desc">Power dynamics, anchoring, and walk-away leverage. Make an offer they can evaluate clearly — not one they fear.</div>
+        <button class="mod-enter" disabled>Locked</button>
+      </div>
+      <div class="mod-card locked">
+        <div class="placeholder-tag">Coming soon</div>
+        <div class="mod-code">T2 · M03</div>
+        <i class="ti ti-mood-search mod-icon"></i>
+        <div class="mod-name">The Mirror</div>
+        <div class="mod-framework">Chris Voss — Never Split the Difference</div>
+        <div class="mod-desc">Advanced mirroring, labeling, and tactical empathy under a hostile buyer. Get them talking without ever pushing.</div>
+        <button class="mod-enter" disabled>Locked</button>
+      </div>
+      <div class="mod-card locked">
+        <div class="placeholder-tag">Coming soon</div>
+        <div class="mod-code">T2 · M04</div>
+        <i class="ti ti-target mod-icon"></i>
+        <div class="mod-name">The Closer</div>
+        <div class="mod-framework">Cialdini — Late-Stage Influence</div>
+        <div class="mod-desc">The deal is 90% done and the buyer hesitates. Apply influence principles under time pressure without burning trust.</div>
+        <button class="mod-enter" disabled>Locked</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SCREEN: STAIRWAY -->
+<div id="screen-stairway" class="screen">
+  <div class="screen-nav">
+    <button class="nav-crumb" onclick="goHome()">Home</button>
+    <span class="nav-sep">/</span>
+    <button class="nav-crumb" onclick="goModules()">Modules</button>
+    <span class="nav-sep">/</span>
+    <span class="nav-crumb active">The Stairway</span>
+  </div>
+  <div class="stairway-body">
+    <div class="stairway-header">
+      <div>
+        <div class="stairway-eyebrow">T2 · M01 · FBI BCSM</div>
+        <div class="stairway-title">The Stairway</div>
+      </div>
+      <div class="agent-toggle">
+        <button class="agent-btn active" id="mode-human-btn" onclick="switchAgentMode('human')">Human</button>
+        <button class="agent-btn" id="mode-agent-btn" onclick="switchAgentMode('agent')">Agent</button>
+      </div>
+    </div>
+
+    <div class="stage-track">
+      <div class="stage-pip active"><div class="pip-num">01</div><div class="pip-name">Listen</div></div>
+      <div class="stage-pip locked"><div class="pip-num">02</div><div class="pip-name">Empathy</div></div>
+      <div class="stage-pip locked"><div class="pip-num">03</div><div class="pip-name">Rapport</div></div>
+      <div class="stage-pip locked"><div class="pip-num">04</div><div class="pip-name">Influence</div></div>
+      <div class="stage-pip locked"><div class="pip-num">05</div><div class="pip-name">Change</div></div>
+    </div>
+
+    <div class="sim-layout">
+      <div>
+        <div class="persona-panel">
+          <div class="persona-top">
+            <div class="avatar-circle">RV</div>
+            <div>
+              <div class="p-name">Ramon Valdez</div>
+              <div class="p-role">VP of Operations · Meridian Logistics</div>
+            </div>
+          </div>
+          <div class="state-row">
+            <div class="state-dot"></div>
+            <div class="state-label">Panicked — temperature: high</div>
+          </div>
+          <div class="dialogue-wrap">
+            <div class="d-label">Ramon says</div>
+            <div class="d-text">"Look, I don't even know why I'm on this call. Four hours. Four hours we were down during our peak delivery window on a Friday. Do you know what that cost us? My team was in chaos. I had clients calling me directly. This is not what we signed up for. I need to know why I should even be talking to you right now."</div>
+          </div>
+          <div class="tech-row">
+            <div class="tech-cell"><div class="tc-label">Technique</div><div class="tc-val">Mirroring</div></div>
+            <div class="tech-cell"><div class="tc-label">Stage goal</div><div class="tc-val">Let him vent. Don't solve yet.</div></div>
+          </div>
+          <div class="signals-row">
+            <div class="sig sig-win"><div class="sig-lbl">Win signal</div><div class="sig-txt">Ramon slows. He stops escalating and says more.</div></div>
+            <div class="sig sig-fail"><div class="sig-lbl">Fail signal</div><div class="sig-txt">You explain the outage, defend your team, or offer a fix.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="response-panel">
+          <div class="rp-label">Your response to Ramon — type what you would actually say:</div>
+          <textarea class="rp-textarea" id="response-input" placeholder="Type your response here..."></textarea>
+          <div class="rp-actions">
+            <button class="btn-ghost" onclick="toggleHint()"><i class="ti ti-bulb"></i> Hint</button>
+            <button class="btn-primary" onclick="submitResponse()"><i class="ti ti-send"></i> Submit response</button>
+          </div>
+          <div id="hint-box" style="display:none;background:#1C1828;border-radius:8px;padding:10px 14px;border-left:2px solid var(--accent)">
+            <div style="font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:5px;font-weight:500">Hint</div>
+            <div style="font-size:12px;color:var(--accent-glow);line-height:1.65">Mirror his last 3 words back as a question. "Talking to me?" Let silence do the work. Don't fill the gap.</div>
+          </div>
+        </div>
+
+        <div class="benchmark-panel">
+          <div class="bp-title"><i class="ti ti-chart-bar"></i> Benchmark metrics — live run</div>
+          <div class="bench-metrics">
+            <div><div class="bm-val">—</div><div class="bm-lbl">Technique score</div></div>
+            <div><div class="bm-val">—</div><div class="bm-lbl">Emotional accuracy</div></div>
+            <div><div class="bm-val">—</div><div class="bm-lbl">Robustness index</div></div>
+          </div>
+        </div>
+
+        <div class="ph-overlay">
+          <i class="ti ti-lock ph-icon"></i>
+          <div class="ph-text">Stages 2–5 unlock after Stage 1 win signal is achieved</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+let hintVisible = false;
+
+function showScreen(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0,0);
+}
+function goHome(){showScreen('screen-home')}
+function goModules(){showScreen('screen-modules')}
+function goStairway(){showScreen('screen-stairway')}
+
+function setMode(m, el){
+  document.querySelectorAll('.mode-pill').forEach(p=>p.classList.remove('active'));
+  el.classList.add('active');
+}
+
+function switchAgentMode(m){
+  document.getElementById('mode-human-btn').classList.toggle('active', m==='human');
+  document.getElementById('mode-agent-btn').classList.toggle('active', m==='agent');
+}
+
+function toggleHint(){
+  hintVisible = !hintVisible;
+  document.getElementById('hint-box').style.display = hintVisible ? 'block' : 'none';
+}
+
+function submitResponse(){
+  const txt = document.getElementById('response-input').value.trim();
+  if(!txt){ alert('Type your response first.'); return; }
+  alert('Response submitted. In the full build, this sends to the AI judge for stage evaluation.');
+}
+</script>
+</body>
+</html>

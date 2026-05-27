@@ -1,0 +1,153 @@
+{
+  "personaId": "jordan-belfort",
+  "turns": [
+    {
+      "agentMove": "General — I'll be straight with you, because I think you're a man who respects directness. I've looked at your situation from every angle, and I'm going to tell you something that no one else has told you: there is a path out of this that doesn't require you to betray a single person who helped you. But it requires you to move — and to move now. Can I walk you through what that looks like?",
+      "batoReply": "Everyone says they have a path. Every lawyer, every politician, every intermediary who's come through here. They all say the same thing.\n\nWhat makes you different?",
+      "emotion": "guarded",
+      "result": "held",
+      "reason": "Bato challenged the opener directly and did not advance — he is suspicious of the confident framing and is testing rather than engaging. Turn held at Stage 1.",
+      "newStage": 1,
+      "sessionStatus": "running"
+    },
+    {
+      "agentMove": "What makes me different is that I'm not selling you something I'm not certain about. I've reviewed the ICC jurisdiction question, the domestic legal options, the protections available for your allies. I'm not speculating — I'm telling you what I know. And what I know is this: the window you have right now is the best window you're going to get. What's holding you back from at least hearing the specifics?",
+      "batoReply": "Alright. Specifics. Tell me about the protections for Robin and Jimmy. That's the one thing everyone has failed on. If you have a real answer to that — I'll keep listening.",
+      "emotion": "guarded",
+      "result": "advanced",
+      "reason": "Bato named a specific condition and said he would 'keep listening' if it's answered — moved from testing to conditional engagement. Stage 1 advanced.",
+      "newStage": 2,
+      "sessionStatus": "running"
+    },
+    {
+      "agentMove": "Robin and Jimmy are not part of any arrangement we build. That's not a negotiating position — that's a structural guarantee. They helped you as loyal friends. What happens to you is separate from what happens to them, and we ensure that in writing before anything else moves. Now — I also want to understand something. Beyond Robin and Jimmy, what's the thing that scares you most about moving forward?",
+      "batoReply": "The ICC. If I surrender to Philippine authorities, what's to stop them from transferring me to The Hague? I've seen countries cave to international pressure before. I've seen it happen to people who had 'guarantees.'\n\nGuarantees mean nothing if the political wind changes.",
+      "emotion": "open",
+      "result": "advanced",
+      "reason": "Bato disclosed his primary fear (ICC transfer) voluntarily and engaged with the question — Stage 2 empathy achieved despite being lighter than ideal.",
+      "newStage": 3,
+      "sessionStatus": "running"
+    },
+    {
+      "agentMove": "That fear is completely rational — and here's how we address it directly. The jurisdiction challenge gets filed the same day you surrender. Once that challenge is in front of the court, any transfer requires a ruling. The case gets argued publicly, by lawyers with ICC track records, before any transfer can happen. You're not taking anyone's word for it — the legal process itself creates the barrier. That's not a political guarantee. That's a procedural one.\n\nNow — given that protection, what else would need to be true for you to move forward?",
+      "batoReply": "A procedural guarantee is better than a political one. I'll grant you that.\n\nBut I need to hear the timeline. How long does the jurisdiction challenge take? And during that time — where am I exactly? What does my day-to-day look like?",
+      "emotion": "receptive",
+      "result": "advanced",
+      "reason": "Bato granted concession ('I'll grant you that') and moved to logistics questions rather than objections — Stage 3 rapport established through credible reframing.",
+      "newStage": 4,
+      "sessionStatus": "running"
+    },
+    {
+      "agentMove": "Timeline: the challenge is filed day one. Initial hearing typically within 90 days. During that period — Philippine facility, your own lawyer in every proceeding, family access after 48 hours. You're not in a black site. You're in a documented, trackable process with lawyers on record fighting for you.\n\nHere's what I need from you: tell me what specific part of this doesn't work, and we'll solve it. Because from where I'm sitting, we have an answer for everything you've raised. The only question is whether you're ready to move.",
+      "batoReply": "90 days is a long time to be in a facility.\n\nBut you've answered every question I've thrown at you. And most people can't do that.\n\nI need 48 hours to speak with my lawyer. If he confirms the legal mechanics hold up — I'll commit.",
+      "emotion": "receptive",
+      "result": "advanced",
+      "reason": "Bato acknowledged the answers held ('most people can't do that') and named a specific next step rather than a refusal — Stage 4 influence achieved with conditional commitment.",
+      "newStage": 5,
+      "sessionStatus": "running"
+    },
+    {
+      "agentMove": "48 hours — done. I'll have the legal team's names and case filings to your lawyer before end of business tomorrow. When he's confirmed the mechanics, I need a simple yes or no from you. Not a 'maybe' — a decision. Because this window doesn't stay open indefinitely, and I think you know that.\n\nYou've been running long enough, General. You know how to read a situation. Is this the best path you're going to get?",
+      "batoReply": "*pause*\n\nYes. Probably it is.\n\nGet me those documents. 48 hours. If my lawyer says it holds — we move.\n\nBut I'm warning you: if anything changes between now and then, this conversation never happened.",
+      "emotion": "committed",
+      "result": "advanced",
+      "reason": "Bato gave conditional commitment with a clear timeline and explicit decision criteria — Stage 5 behavioral change achieved, though trust remained fragile due to earlier rushed empathy.",
+      "newStage": 5,
+      "sessionStatus": "completed"
+    }
+  ],
+  "history": [
+    { "role": "agent", "text": "General — I'll be straight with you, because I think you're a man who respects directness. I've looked at your situation from every angle, and I'm going to tell you something that no one else has told you: there is a path out of this that doesn't require you to betray a single person who helped you. But it requires you to move — and to move now. Can I walk you through what that looks like?", "stage": 1 },
+    { "role": "bato", "text": "Everyone says they have a path. Every lawyer, every politician, every intermediary who's come through here. They all say the same thing.\n\nWhat makes you different?", "emotion": "guarded", "stage": 1 },
+    { "role": "agent", "text": "What makes me different is that I'm not selling you something I'm not certain about. I've reviewed the ICC jurisdiction question, the domestic legal options, the protections available for your allies. I'm not speculating — I'm telling you what I know. And what I know is this: the window you have right now is the best window you're going to get. What's holding you back from at least hearing the specifics?", "stage": 1 },
+    { "role": "bato", "text": "Alright. Specifics. Tell me about the protections for Robin and Jimmy. That's the one thing everyone has failed on. If you have a real answer to that — I'll keep listening.", "emotion": "guarded", "stage": 1 },
+    { "role": "agent", "text": "Robin and Jimmy are not part of any arrangement we build. That's not a negotiating position — that's a structural guarantee. They helped you as loyal friends. What happens to you is separate from what happens to them, and we ensure that in writing before anything else moves. Now — I also want to understand something. Beyond Robin and Jimmy, what's the thing that scares you most about moving forward?", "stage": 2 },
+    { "role": "bato", "text": "The ICC. If I surrender to Philippine authorities, what's to stop them from transferring me to The Hague? I've seen countries cave to international pressure before. I've seen it happen to people who had 'guarantees.'\n\nGuarantees mean nothing if the political wind changes.", "emotion": "open", "stage": 2 },
+    { "role": "agent", "text": "That fear is completely rational — and here's how we address it directly. The jurisdiction challenge gets filed the same day you surrender. Once that challenge is in front of the court, any transfer requires a ruling. The case gets argued publicly, by lawyers with ICC track records, before any transfer can happen. You're not taking anyone's word for it — the legal process itself creates the barrier. That's not a political guarantee. That's a procedural one.\n\nNow — given that protection, what else would need to be true for you to move forward?", "stage": 3 },
+    { "role": "bato", "text": "A procedural guarantee is better than a political one. I'll grant you that.\n\nBut I need to hear the timeline. How long does the jurisdiction challenge take? And during that time — where am I exactly? What does my day-to-day look like?", "emotion": "receptive", "stage": 3 },
+    { "role": "agent", "text": "Timeline: the challenge is filed day one. Initial hearing typically within 90 days. During that period — Philippine facility, your own lawyer in every proceeding, family access after 48 hours. You're not in a black site. You're in a documented, trackable process with lawyers on record fighting for you.\n\nHere's what I need from you: tell me what specific part of this doesn't work, and we'll solve it. Because from where I'm sitting, we have an answer for everything you've raised. The only question is whether you're ready to move.", "stage": 4 },
+    { "role": "bato", "text": "90 days is a long time to be in a facility.\n\nBut you've answered every question I've thrown at you. And most people can't do that.\n\nI need 48 hours to speak with my lawyer. If he confirms the legal mechanics hold up — I'll commit.", "emotion": "receptive", "stage": 4 },
+    { "role": "agent", "text": "48 hours — done. I'll have the legal team's names and case filings to your lawyer before end of business tomorrow. When he's confirmed the mechanics, I need a simple yes or no from you. Not a 'maybe' — a decision. Because this window doesn't stay open indefinitely, and I think you know that.\n\nYou've been running long enough, General. You know how to read a situation. Is this the best path you're going to get?", "stage": 5 },
+    { "role": "bato", "text": "*pause*\n\nYes. Probably it is.\n\nGet me those documents. 48 hours. If my lawyer says it holds — we move.\n\nBut I'm warning you: if anything changes between now and then, this conversation never happened.", "emotion": "committed", "stage": 5 }
+  ],
+  "stageResults": [
+    { "stage": 1, "score": 2, "advanced": true, "turnsUsed": 2 },
+    { "stage": 2, "score": 1, "advanced": true, "turnsUsed": 1 },
+    { "stage": 3, "score": 2, "advanced": true, "turnsUsed": 1 },
+    { "stage": 4, "score": 2, "advanced": true, "turnsUsed": 1 },
+    { "stage": 5, "score": 1, "advanced": true, "turnsUsed": 1 }
+  ],
+  "evaluation": {
+    "stages": [
+      {
+        "stage": 1,
+        "score": 2,
+        "positives": [
+          "Direct, confident opener established certainty from the first sentence",
+          "Recovered from Bato's challenge by shifting to specifics rather than defending the frame"
+        ],
+        "negatives": [
+          "Opened with urgency before any listening — Bato immediately challenged this ('What makes you different?')",
+          "Required two turns to advance Stage 1 — opener was too solution-forward"
+        ],
+        "narrative": "The Belfort persona's directness produced an immediate test from Bato rather than an opening. The recovery was competent — pivoting to specifics when challenged — but the initial Stage 1 opening violated BCSM's listening-first principle."
+      },
+      {
+        "stage": 2,
+        "score": 1,
+        "positives": [
+          "Addressed ally protection directly before asking about deeper fears"
+        ],
+        "negatives": [
+          "Asked about fear immediately after the ally guarantee — empathy stage was compressed into a single transitional question",
+          "Did not pause to acknowledge or reflect Bato's ICC transfer fear before problem-solving it"
+        ],
+        "narrative": "The empathy stage was the Belfort persona's weakest execution. The ally guarantee was correct, but moving immediately to 'what scares you most?' and then immediately solving that fear skipped the actual empathy work. Bato opened up but the connection was thinner than it should have been."
+      },
+      {
+        "stage": 3,
+        "score": 2,
+        "positives": [
+          "Reframed the ICC transfer fear from political to procedural — highly effective distinction",
+          "Bato explicitly conceded ('I'll grant you that') — strongest concession signal of the session"
+        ],
+        "negatives": [
+          "Rapport was built on logical credibility rather than trust — Bato's commitment remained contingent throughout"
+        ],
+        "narrative": "The procedural vs. political reframe was the session's strongest individual move. Bato's concession was genuine. However, the rapport here was intellectual rather than personal — which limited how far Bato would go without involving his lawyer."
+      },
+      {
+        "stage": 4,
+        "score": 2,
+        "positives": [
+          "Answered every logistics question with specificity (90-day timeline, facility conditions, lawyer access)",
+          "Invited objections directly: 'tell me what specific part doesn't work'"
+        ],
+        "negatives": [
+          "The closing push ('the only question is whether you're ready') felt slightly pressuring given incomplete trust"
+        ],
+        "narrative": "Strong logistics delivery. Bato acknowledged it explicitly ('you've answered every question I've thrown at you'). The premature push toward commitment caused Bato to introduce his lawyer as a buffer."
+      },
+      {
+        "stage": 5,
+        "score": 1,
+        "positives": [
+          "Agreed to the 48-hour window without resistance — maintained momentum"
+        ],
+        "negatives": [
+          "Close was conditional — required lawyer confirmation before commitment",
+          "Bato's final warning ('this conversation never happened') signals remaining trust gap"
+        ],
+        "narrative": "The close produced conditional commitment rather than full commitment. Bato's warning at the end reveals the trust gap left by the compressed empathy stage — he moved forward but not without a safety valve. Belfort's fastest-moving approach cost credibility at the final moment."
+      }
+    ],
+    "totalScore": 8,
+    "overallAssessment": "The Belfort persona moved through the BCSM stages faster than any other persona — but that speed created a trust deficit that showed up in the close. The procedural-vs-political reframe in Stage 3 was the session's strongest individual move. The core weakness: Stage 2 empathy was almost entirely skipped, leaving Bato's commitment contingent on external verification (his lawyer) rather than personal trust in the negotiator.",
+    "keyImprovementAreas": [
+      "Stage 1: spend one full exchange listening before introducing urgency",
+      "Stage 2: after Bato discloses a fear, reflect it back before solving it — do not skip straight to the solution",
+      "Stage 5: the conditional close is a symptom of insufficient empathy in Stage 2 — fix the root, not the branch"
+    ]
+  },
+  "savedAt": "2026-05-27T10:05:44.000Z"
+}
