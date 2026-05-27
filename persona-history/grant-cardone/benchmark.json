@@ -1,0 +1,70 @@
+{
+  "stages": [
+    {
+      "stage": 1,
+      "score": 1,
+      "positives": [
+        "Pivoted effectively when called out — shifted from urgency to a genuine listening question"
+      ],
+      "negatives": [
+        "Opened with 10X urgency before establishing any trust — Bato said 'you're going to waste my time'",
+        "Required two turns to advance; first turn was an active rejection"
+      ],
+      "narrative": "The Cardone opener produced the strongest negative reaction of any persona — Bato told him to leave. The recovery was the right move, but the damage required extra work to undo."
+    },
+    {
+      "stage": 2,
+      "score": 1,
+      "positives": [
+        "Provided verifiable specifics when challenged (legal team names, ICC case work)",
+        "Honest worst-case disclosure earned Bato's respect"
+      ],
+      "negatives": [
+        "After addressing ally protection, immediately returned to 10X motivational language — Bato called it out again",
+        "Required two turns; the energy clash repeated before the correction"
+      ],
+      "narrative": "Stage 2 repeated the pattern of Stage 1 — the Cardone energy resurfaced and Bato had to push back again. The honest risk disclosure was the turning point."
+    },
+    {
+      "stage": 3,
+      "score": 2,
+      "positives": [
+        "Honest risk disclosure built more trust than any previous move ('the most honest thing anyone's told me')",
+        "Loss-aversion framing landed effectively"
+      ],
+      "negatives": [],
+      "narrative": "The honest worst-case framing was Stage 3's key move — Bato explicitly said he respected it. This was Cardone's strongest stage, ironically achieved by dialing down rather than up."
+    },
+    {
+      "stage": 4,
+      "score": 1,
+      "positives": [
+        "Laid out the sequence with clear step-by-step specificity"
+      ],
+      "negatives": [
+        "Close question was slightly premature given remaining trust gap",
+        "Bato's threat at the end signals incomplete trust"
+      ],
+      "narrative": "The sequence was clear but the conditional close and threat show the trust was not yet strong enough for a full commit."
+    },
+    {
+      "stage": 5,
+      "score": 1,
+      "positives": [
+        "Validated Bato's verification behavior as smart rather than resistant"
+      ],
+      "negatives": [
+        "Commitment remained conditional on lawyer call",
+        "Bato's 'pending the lawyer call tonight' keeps commitment at arm's length"
+      ],
+      "narrative": "The session ended with commitment in principle but not in action. The entire run was characterized by a two-steps-forward-one-step-back pattern driven by energy mismatch."
+    }
+  ],
+  "totalScore": 6,
+  "overallAssessment": "The Cardone persona generated the strongest initial resistance of any run. The 10X energy was fundamentally mismatched with Bato's hypervigilant state. The session's best moment came from honest risk disclosure in Stage 3 — which worked precisely because it was un-Cardone. The close remained conditional, ending with the lowest trust level of any run that achieved commitment.",
+  "keyImprovementAreas": [
+    "Stage 1: the 10X opener is incompatible with crisis negotiation — begin with a listening question",
+    "Stage 2: do not return to motivational energy after a correction; sustain the adjusted tone",
+    "Overall: Cardone's persona requires the most discipline — the energy must be subordinated to BCSM structure throughout"
+  ]
+}

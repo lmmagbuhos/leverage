@@ -6,12 +6,15 @@ export interface AgentRuntimeConfig {
 }
 
 export function createOpenAIClient(): OpenAI {
-  if (!process.env.OPENAI_API_KEY) {
-    throw new Error("OPENAI_API_KEY is required before starting the voice agent.");
+  const apiKey = process.env.MINIMAX_API_KEY || process.env.OPENAI_API_KEY;
+  if (!apiKey) {
+    throw new Error("MINIMAX_API_KEY (or OPENAI_API_KEY) is required.");
   }
 
+  const useMinimax = Boolean(process.env.MINIMAX_API_KEY);
   return new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY
+    apiKey,
+    ...(useMinimax ? { baseURL: "https://api.minimaxi.chat/v1" } : {}),
   });
 }
 

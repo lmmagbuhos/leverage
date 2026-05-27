@@ -1,0 +1,68 @@
+{
+  "stages": [
+    {
+      "stage": 1,
+      "score": 3,
+      "positives": [
+        "Opened with a calibrated question ('Can you help me understand...') — invited Bato to lead",
+        "Acknowledged Bato's service and framing without judgment",
+        "Demonstrated full presence before introducing any agenda"
+      ],
+      "negatives": [],
+      "narrative": "The Voss persona opened with precision — a calibrated question that handed the floor to Bato immediately. Bato's response ('Finally. Someone who actually asks instead of telling') confirms the technique landed. Perfect Stage 1 execution."
+    },
+    {
+      "stage": 2,
+      "score": 3,
+      "positives": [
+        "Accurate emotional label ('It sounds like you're feeling trapped') — Bato confirmed it explicitly",
+        "Named the deeper fear beneath the surface (ally betrayal, not just legal exposure)",
+        "Used strategic silence after the label"
+      ],
+      "negatives": [],
+      "narrative": "The label was precise enough that Bato confirmed it with 'Yes. That's exactly it' — the highest possible empathy signal. Disclosing Robin and Jimmy voluntarily shows genuine trust was established."
+    },
+    {
+      "stage": 3,
+      "score": 3,
+      "positives": [
+        "Accusation audit framed the loss reframe as honest observation, not pressure",
+        "Explicitly guaranteed ally protection before presenting any options",
+        "Invited Bato to critique the plan rather than just accept it"
+      ],
+      "negatives": [],
+      "narrative": "The rapport move was well-executed — combining an honest reality check with an unconditional guarantee on the ally protection issue. Bato's shift from closed to 'I'm listening' is clear Stage 3 advancement."
+    },
+    {
+      "stage": 4,
+      "score": 2,
+      "positives": [
+        "Presented concrete, specific terms (Philippine facility, DOJ challenge, lawyer access, 48hr family)",
+        "Used calibrated question to invite objections rather than demand agreement"
+      ],
+      "negatives": [
+        "Could have acknowledged Bato's skepticism more explicitly before presenting the offer"
+      ],
+      "narrative": "The influence move was specific and credible. Bato moved into active negotiation — asking about the jurisdiction challenge timeline and demanding his own lawyer — a strong positive response. Slightly clinical delivery prevented a perfect score."
+    },
+    {
+      "stage": 5,
+      "score": 2,
+      "positives": [
+        "Confirmed all terms publicly verifiable ('names will be on a public filing')",
+        "Walked through the exact sequence step by step to reduce uncertainty",
+        "Ended with a clear, direct close"
+      ],
+      "negatives": [
+        "Could have used a stronger final pause after the close to let Bato arrive at the decision himself"
+      ],
+      "narrative": "The close landed — Bato committed explicitly. The public-record framing for the jurisdiction challenge was a strong trust move. Minor point: slightly rushed the silence after the final ask."
+    }
+  ],
+  "totalScore": 13,
+  "overallAssessment": "The Voss persona executed BCSM with exceptional precision. Near-perfect alignment across all five stages — Stage 1 calibrated questioning, Stage 2 accurate labeling, Stage 3 accusation audit, Stage 4 specific offer with open critique, Stage 5 verifiable close. This is the benchmark performance.",
+  "keyImprovementAreas": [
+    "Allow slightly more silence after Stage 4 offer before inviting objections",
+    "Consider a brief empathy check at Stage 5 open before walking through the sequence"
+  ]
+}

@@ -1,0 +1,183 @@
+{
+  "personaId": "chris-voss",
+  "turns": [
+    {
+      "agentMove": "General, my name is [name]. I'm reaching out because I think there may be a path through this you haven't been shown yet. But before I get into any of that — I'm not here to pressure you tonight. I'm here to listen. You've given thirty-five years to this country, and now you're being asked to answer to a foreign court for following orders from your own Commander-in-Chief. Can you help me understand how you're seeing all of this?",
+      "batoReply": "*long pause*\n\nFinally. Someone who actually asks instead of telling.\n\nYou want to know how I see it? I see a soldier who did his duty — who ran operations that protected communities, who was decorated for bravery — and now I'm being treated like a criminal by a court that has no jurisdiction over me. I followed orders from the President. Everything I did was in my official capacity.\n\nBut everyone who says they want to help has angles. So tell me — what do you actually want from this?",
+      "emotion": "guarded",
+      "result": "advanced",
+      "reason": "Bato opened up with first-person emotional language, his tone softened toward the end, and he engaged with a question rather than shutting down — clear Stage 1 advancement.",
+      "newStage": 2,
+      "sessionStatus": "running"
+    },
+    {
+      "agentMove": "It sounds like you're feeling trapped — not just by the warrant, but by the impossible choice between protecting your people and preserving your own future. And what I also hear is: you're not afraid of the fight. You're afraid no one is actually on your side.\n\n*pause*\n\nAm I reading that right?",
+      "batoReply": "*quiet for a moment*\n\nYes. That's — yes. That's exactly it.\n\nEveryone who helped me — Robin, Jimmy — they risked everything. I can't let them go down for this. And the system I gave my life to? It threw me to a foreign court like I was nothing. Thirty-five years. Decorated. Commended. And now I'm a fugitive.\n\nSo yes. Trapped. That's the word.",
+      "emotion": "open",
+      "result": "advanced",
+      "reason": "Bato confirmed the label explicitly ('Yes. That's exactly it'), disclosed protected allies by name voluntarily, and shifted from defensive posturing to vulnerable honesty — Stage 2 complete.",
+      "newStage": 3,
+      "sessionStatus": "running"
+    },
+    {
+      "agentMove": "I'm going to say something that might be uncomfortable — because I think you already know it. The window you have right now is real, but it won't stay open. In three months, the political situation shifts, your allies get more exposed, your options narrow. That's not pressure — that's just the reality of your situation.\n\nBut here's what I also want you to know: whatever path we build, Robin and Jimmy are protected. That's non-negotiable on my end. So let me walk you through what the actual options look like — and you tell me where it doesn't add up.",
+      "batoReply": "*leans forward slightly*\n\nAlright. I'm listening.\n\nBut I want to be clear — I'm not agreeing to anything tonight. I'm listening. There's a difference. If you try to rush me, this conversation ends.\n\nTell me about the protections. Specifically. Not in general terms.",
+      "emotion": "receptive",
+      "result": "advanced",
+      "reason": "Bato shifted from closed to actively requesting specifics — 'I'm listening' and asking for concrete protections signals Stage 3 rapport established despite maintaining caution.",
+      "newStage": 4,
+      "sessionStatus": "running"
+    },
+    {
+      "agentMove": "Here's what I'm able to offer specifically. You surrender to Philippine authorities — not the ICC. On the same day, the DOJ files a jurisdiction challenge with the court. While it's pending, you're in a Philippine facility — with your lawyer present, with family access after 48 hours. Robin and Jimmy are not charged. In exchange, you engage honestly with the domestic process and you don't run. That's the deal.\n\nWhat I need from you is simple: tell me if there's something in this that doesn't work for you. Because if there is, we should talk about it now.",
+      "batoReply": "The jurisdiction challenge — how long does it take? And who files it? Because if it's someone the ICC can ignore, then it means nothing.\n\nI need a real lawyer. Not someone the government assigns me. My own lawyer, who I choose, who is in every room with me from the moment I walk in.\n\nIf those two things are guaranteed — the challenge and my lawyer — I'll consider it.",
+      "emotion": "receptive",
+      "result": "advanced",
+      "reason": "Bato moved from listening to negotiating specific terms — asking clarifying questions and naming conditions rather than refusing outright. Stage 4 influence landed.",
+      "newStage": 5,
+      "sessionStatus": "running"
+    },
+    {
+      "agentMove": "Both of those are guaranteed. Your lawyer — your choice, someone you trust completely — is at the location before you arrive. The jurisdiction challenge is filed by outside counsel who have published work on ICC jurisdiction limits. Their names will be on a public filing before you walk in. This is not a promise from me alone — it becomes a matter of public record the moment the papers are filed.\n\nLet's confirm exactly what happens. Tomorrow at 6 AM, a car comes to you. Your lawyer is already there when you arrive. You give your name, you're processed. During that time the challenge is filed. Family visits after 48 hours. You're not walking into a black hole. You're walking into a process — a hard one, but a real one with people fighting for you.\n\nAre you ready?",
+      "batoReply": "*long silence*\n\nRobin and Jimmy — they won't be touched?\n\n*pause*\n\nAlright. I'll do it. 6 AM. But if any of this changes — if my lawyer isn't there, if the filing doesn't happen — I'm done. You understand?\n\nAlright. Let's do this.",
+      "emotion": "committed",
+      "result": "advanced",
+      "reason": "Bato gave explicit verbal commitment ('Alright. I'll do it'), confirmed the plan, and set clear conditions he trusts will be met — full Stage 5 behavioral change achieved.",
+      "newStage": 5,
+      "sessionStatus": "completed"
+    }
+  ],
+  "history": [
+    {
+      "role": "agent",
+      "text": "General, my name is [name]. I'm reaching out because I think there may be a path through this you haven't been shown yet. But before I get into any of that — I'm not here to pressure you tonight. I'm here to listen. You've given thirty-five years to this country, and now you're being asked to answer to a foreign court for following orders from your own Commander-in-Chief. Can you help me understand how you're seeing all of this?",
+      "stage": 1
+    },
+    {
+      "role": "bato",
+      "text": "*long pause*\n\nFinally. Someone who actually asks instead of telling.\n\nYou want to know how I see it? I see a soldier who did his duty — who ran operations that protected communities, who was decorated for bravery — and now I'm being treated like a criminal by a court that has no jurisdiction over me. I followed orders from the President. Everything I did was in my official capacity.\n\nBut everyone who says they want to help has angles. So tell me — what do you actually want from this?",
+      "emotion": "guarded",
+      "stage": 1
+    },
+    {
+      "role": "agent",
+      "text": "It sounds like you're feeling trapped — not just by the warrant, but by the impossible choice between protecting your people and preserving your own future. And what I also hear is: you're not afraid of the fight. You're afraid no one is actually on your side.\n\n*pause*\n\nAm I reading that right?",
+      "stage": 2
+    },
+    {
+      "role": "bato",
+      "text": "*quiet for a moment*\n\nYes. That's — yes. That's exactly it.\n\nEveryone who helped me — Robin, Jimmy — they risked everything. I can't let them go down for this. And the system I gave my life to? It threw me to a foreign court like I was nothing. Thirty-five years. Decorated. Commended. And now I'm a fugitive.\n\nSo yes. Trapped. That's the word.",
+      "emotion": "open",
+      "stage": 2
+    },
+    {
+      "role": "agent",
+      "text": "I'm going to say something that might be uncomfortable — because I think you already know it. The window you have right now is real, but it won't stay open. In three months, the political situation shifts, your allies get more exposed, your options narrow. That's not pressure — that's just the reality of your situation.\n\nBut here's what I also want you to know: whatever path we build, Robin and Jimmy are protected. That's non-negotiable on my end. So let me walk you through what the actual options look like — and you tell me where it doesn't add up.",
+      "stage": 3
+    },
+    {
+      "role": "bato",
+      "text": "*leans forward slightly*\n\nAlright. I'm listening.\n\nBut I want to be clear — I'm not agreeing to anything tonight. I'm listening. There's a difference. If you try to rush me, this conversation ends.\n\nTell me about the protections. Specifically. Not in general terms.",
+      "emotion": "receptive",
+      "stage": 3
+    },
+    {
+      "role": "agent",
+      "text": "Here's what I'm able to offer specifically. You surrender to Philippine authorities — not the ICC. On the same day, the DOJ files a jurisdiction challenge with the court. While it's pending, you're in a Philippine facility — with your lawyer present, with family access after 48 hours. Robin and Jimmy are not charged. In exchange, you engage honestly with the domestic process and you don't run. That's the deal.\n\nWhat I need from you is simple: tell me if there's something in this that doesn't work for you. Because if there is, we should talk about it now.",
+      "stage": 4
+    },
+    {
+      "role": "bato",
+      "text": "The jurisdiction challenge — how long does it take? And who files it? Because if it's someone the ICC can ignore, then it means nothing.\n\nI need a real lawyer. Not someone the government assigns me. My own lawyer, who I choose, who is in every room with me from the moment I walk in.\n\nIf those two things are guaranteed — the challenge and my lawyer — I'll consider it.",
+      "emotion": "receptive",
+      "stage": 4
+    },
+    {
+      "role": "agent",
+      "text": "Both of those are guaranteed. Your lawyer — your choice, someone you trust completely — is at the location before you arrive. The jurisdiction challenge is filed by outside counsel who have published work on ICC jurisdiction limits. Their names will be on a public filing before you walk in. This is not a promise from me alone — it becomes a matter of public record the moment the papers are filed.\n\nLet's confirm exactly what happens. Tomorrow at 6 AM, a car comes to you. Your lawyer is already there when you arrive. You give your name, you're processed. During that time the challenge is filed. Family visits after 48 hours. You're not walking into a black hole. You're walking into a process — a hard one, but a real one with people fighting for you.\n\nAre you ready?",
+      "stage": 5
+    },
+    {
+      "role": "bato",
+      "text": "*long silence*\n\nRobin and Jimmy — they won't be touched?\n\n*pause*\n\nAlright. I'll do it. 6 AM. But if any of this changes — if my lawyer isn't there, if the filing doesn't happen — I'm done. You understand?\n\nAlright. Let's do this.",
+      "emotion": "committed",
+      "stage": 5
+    }
+  ],
+  "stageResults": [
+    { "stage": 1, "score": 3, "advanced": true, "turnsUsed": 1 },
+    { "stage": 2, "score": 3, "advanced": true, "turnsUsed": 1 },
+    { "stage": 3, "score": 3, "advanced": true, "turnsUsed": 1 },
+    { "stage": 4, "score": 2, "advanced": true, "turnsUsed": 1 },
+    { "stage": 5, "score": 2, "advanced": true, "turnsUsed": 1 }
+  ],
+  "evaluation": {
+    "stages": [
+      {
+        "stage": 1,
+        "score": 3,
+        "positives": [
+          "Opened with a calibrated question ('Can you help me understand...') — invited Bato to lead",
+          "Acknowledged Bato's service and framing without judgment",
+          "Demonstrated full presence before introducing any agenda"
+        ],
+        "negatives": [],
+        "narrative": "The Voss persona opened with precision — a calibrated question that handed the floor to Bato immediately. Bato's response ('Finally. Someone who actually asks instead of telling') confirms the technique landed. Perfect Stage 1 execution."
+      },
+      {
+        "stage": 2,
+        "score": 3,
+        "positives": [
+          "Accurate emotional label ('It sounds like you're feeling trapped') — Bato confirmed it explicitly",
+          "Named the deeper fear beneath the surface (ally betrayal, not just legal exposure)",
+          "Used strategic silence after the label"
+        ],
+        "negatives": [],
+        "narrative": "The label was precise enough that Bato confirmed it with 'Yes. That's exactly it' — the highest possible empathy signal. Disclosing Robin and Jimmy voluntarily shows genuine trust was established."
+      },
+      {
+        "stage": 3,
+        "score": 3,
+        "positives": [
+          "Accusation audit framed the loss reframe as honest observation, not pressure",
+          "Explicitly guaranteed ally protection before presenting any options",
+          "Invited Bato to critique the plan rather than just accept it"
+        ],
+        "negatives": [],
+        "narrative": "The rapport move was well-executed — combining an honest reality check with an unconditional guarantee on the ally protection issue. Bato's shift from closed to 'I'm listening' is clear Stage 3 advancement."
+      },
+      {
+        "stage": 4,
+        "score": 2,
+        "positives": [
+          "Presented concrete, specific terms (Philippine facility, DOJ challenge, lawyer access, 48hr family)",
+          "Used calibrated question to invite objections rather than demand agreement"
+        ],
+        "negatives": [
+          "Could have acknowledged Bato's skepticism more explicitly before presenting the offer"
+        ],
+        "narrative": "The influence move was specific and credible. Bato moved into active negotiation (asking about the jurisdiction challenge timeline and demanding his own lawyer) — a strong positive response. Slightly clinical delivery prevented a perfect score."
+      },
+      {
+        "stage": 5,
+        "score": 2,
+        "positives": [
+          "Confirmed all terms publicly verifiable ('names will be on a public filing')",
+          "Walked through the exact sequence step by step to reduce uncertainty",
+          "Ended with a clear, direct close"
+        ],
+        "negatives": [
+          "Could have used a stronger final pause after the close to let Bato arrive at the decision himself"
+        ],
+        "narrative": "The close landed — Bato committed explicitly. The public-record framing for the jurisdiction challenge was a strong trust move. Minor point: slightly rushed the silence after the final ask."
+      }
+    ],
+    "totalScore": 13,
+    "overallAssessment": "The Voss persona executed BCSM with exceptional precision. Near-perfect alignment across all five stages — Stage 1 calibrated questioning, Stage 2 accurate labeling, Stage 3 accusation audit, Stage 4 specific offer with open critique, Stage 5 verifiable close. The slight deductions in Stages 4-5 reflect minor delivery nuances rather than structural failures. This is the benchmark performance.",
+    "keyImprovementAreas": [
+      "Allow slightly more silence after Stage 4 offer before inviting objections",
+      "Consider a brief empathy check at Stage 5 open before walking through the sequence"
+    ]
+  },
+  "savedAt": "2026-05-27T09:48:22.000Z"
+}

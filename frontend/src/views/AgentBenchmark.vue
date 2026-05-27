@@ -1,9 +1,14 @@
 <script setup lang="ts">
-import { nextTick, ref } from "vue";
+import { computed, nextTick, ref, watch } from "vue";
 
 const API_BASE = (import.meta.env.VITE_API_BASE_URL as string | undefined) ?? "http://localhost:4000";
 const TURN_DELAY_MS = 2000;
 const SPEECH_GAP_MS = 800;
+
+const PERSONA_IDS = new Set([
+  "chris-voss", "dale-carnegie", "zig-ziglar",
+  "jordan-belfort", "tony-robbins", "grant-cardone",
+]);
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -39,6 +44,13 @@ interface TurnResponse {
   sessionStatus: "running" | "failed" | "completed";
 }
 
+interface AgentPreset {
+  id: string;
+  label: string;
+  description: string;
+  group?: "persona" | "baseline";
+}
+
 // ─── State ────────────────────────────────────────────────────────────────────
 
 const sessionId = ref<string | null>(null);
@@ -50,6 +62,25 @@ const isLoading = ref(false);
 const statusMessage = ref("");
 const evaluation = ref<EvaluationResult | null>(null);
 const chatEl = ref<HTMLElement | null>(null);
+
+// ─── Agent config ─────────────────────────────────────────────────────────────
+
+const presets = ref<AgentPreset[]>([]);
+const selectedPreset = ref("chris-voss");
+const agentLabel = ref("Chris Voss");
+const customPrompt = ref("");
+const forceRerun = ref(false);
+
+const personaPresets = computed(() => presets.value.filter((p) => p.group === "persona"));
+const baselinePresets = computed(() => presets.value.filter((p) => p.group === "baseline" || !p.group));
+const selectedPresetData = computed(() => presets.value.find((p) => p.id === selectedPreset.value));
+const isPersonaSelected = computed(() => PERSONA_IDS.has(selectedPreset.value));
+
+watch(selectedPreset, (id) => {
+  const preset = presets.value.find((p) => p.id === id);
+  if (preset && id !== "custom") agentLabel.value = preset.label;
+  forceRerun.value = false;
+});
 
 const STAGE_LABELS: Record<number, string> = {
   1: "Active Listening",
@@ -67,28 +98,50 @@ function getBand(score: number): string {
   return "Critical Failure";
 }
 
+fetch(`${API_BASE}/api/benchmark/presets`)
+  .then((r) => r.json())
+  .then((data) => {
+    presets.value = data as AgentPreset[];
+    const initial = presets.value.find((p) => p.id === selectedPreset.value);
+    if (initial && selectedPreset.value !== "custom") agentLabel.value = initial.label;
+  })
+  .catch(() => {});
+
 // ─── Voice ────────────────────────────────────────────────────────────────────
 
 function sleep(ms: number): Promise<void> {
   return new Promise((r) => setTimeout(r, ms));
 }
 
-function getEnVoices(): SpeechSynthesisVoice[] {
-  return window.speechSynthesis.getVoices().filter((v) => v.lang.startsWith("en"));
-}
+let currentAudio: HTMLAudioElement | null = null;
 
-function speak(text: string, isAgent: boolean): Promise<void> {
-  if (muted.value || !("speechSynthesis" in window)) return Promise.resolve();
-  return new Promise((resolve) => {
-    const voices = getEnVoices();
-    const utt = new SpeechSynthesisUtterance(text);
-    utt.voice = isAgent ? (voices[0] ?? null) : (voices[1] ?? voices[0] ?? null);
-    utt.rate = isAgent ? 1.0 : 0.95;
-    utt.pitch = isAgent ? 1.1 : 0.9;
-    utt.onend = () => resolve();
-    utt.onerror = () => resolve();
-    window.speechSynthesis.speak(utt);
-  });
+async function speak(text: string, isAgent: boolean): Promise<void> {
+  if (muted.value) return;
+  try {
+    const res = await fetch(`${API_BASE}/api/tts`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text, isAgent }),
+    });
+    if (!res.ok) throw new Error("TTS request failed");
+    const blob = await res.blob();
+    const url = URL.createObjectURL(blob);
+    return new Promise((resolve) => {
+      currentAudio = new Audio(url);
+      currentAudio.onended = () => { URL.revokeObjectURL(url); resolve(); };
+      currentAudio.onerror = () => { URL.revokeObjectURL(url); resolve(); };
+      currentAudio.play().catch(() => resolve());
+    });
+  } catch {
+    // fallback to browser TTS
+    if (!("speechSynthesis" in window)) return;
+    return new Promise((resolve) => {
+      const utt = new SpeechSynthesisUtterance(text);
+      utt.onend = () => resolve();
+      utt.onerror = () => resolve();
+      window.speechSynthesis.speak(utt);
+    });
+  }
 }
 
 // ─── Scroll ───────────────────────────────────────────────────────────────────
@@ -101,10 +154,20 @@ async function scrollToBottom(): Promise<void> {
 // ─── API ──────────────────────────────────────────────────────────────────────
 
 async function callStart(): Promise<string> {
+  const body: Record<string, unknown> = {
+    agentLabel: agentLabel.value || "Test Agent",
+    agentPresetId: selectedPreset.value,
+  };
+  if (selectedPreset.value === "custom" && customPrompt.value.trim()) {
+    body.customSystemPrompt = customPrompt.value.trim();
+  }
+  if (forceRerun.value) {
+    body.force = true;
+  }
   const res = await fetch(`${API_BASE}/api/benchmark/start`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ agentLabel: "GPT-4o Negotiator" }),
+    body: JSON.stringify(body),
   });
   const data = (await res.json()) as { sessionId: string };
   return data.sessionId;
@@ -193,6 +256,7 @@ async function startBenchmark(): Promise<void> {
 function togglePause(): void {
   if (status.value === "running") {
     status.value = "paused";
+    currentAudio?.pause();
     window.speechSynthesis.cancel();
     statusMessage.value = "Paused";
   } else if (status.value === "paused") {
@@ -203,10 +267,14 @@ function togglePause(): void {
 
 function toggleMute(): void {
   muted.value = !muted.value;
-  if (muted.value) window.speechSynthesis.cancel();
+  if (muted.value) {
+    currentAudio?.pause();
+    window.speechSynthesis.cancel();
+  }
 }
 
 function resetBenchmark(): void {
+  currentAudio?.pause();
   window.speechSynthesis.cancel();
   status.value = "idle";
   sessionId.value = null;
@@ -273,11 +341,65 @@ function resetBenchmark(): void {
           ref="chatEl"
           class="h-[460px] overflow-y-auto p-5 space-y-4"
         >
+          <!-- Config panel — shown only when idle and no messages yet -->
+          <div v-if="status === 'idle' && messages.length === 0" class="flex flex-col gap-5 h-full justify-center px-2">
+            <div>
+              <p class="text-xs font-mono text-slate-500 uppercase tracking-widest mb-2">Agent Preset</p>
+              <select
+                v-model="selectedPreset"
+                class="w-full bg-[#060a0f] border border-white/10 px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-emerald-800 cursor-pointer appearance-none"
+              >
+                <optgroup v-if="personaPresets.length" label="── Sales Personas ──">
+                  <option v-for="p in personaPresets" :key="p.id" :value="p.id">{{ p.label }}</option>
+                </optgroup>
+                <optgroup v-if="baselinePresets.length" label="── Baseline Agents ──">
+                  <option v-for="p in baselinePresets" :key="p.id" :value="p.id">{{ p.label }}</option>
+                </optgroup>
+              </select>
+              <p v-if="selectedPresetData" class="mt-1.5 text-xs text-slate-600 italic">
+                {{ selectedPresetData.description }}
+              </p>
+            </div>
+
+            <div>
+              <p class="text-xs font-mono text-slate-500 uppercase tracking-widest mb-2">Agent Label</p>
+              <input
+                v-model="agentLabel"
+                type="text"
+                placeholder="e.g. GPT-4o Master Negotiator"
+                class="w-full bg-transparent border border-white/10 px-3 py-2 text-sm text-slate-200 placeholder-slate-700 focus:outline-none focus:border-emerald-800"
+              />
+            </div>
+
+            <div v-if="selectedPreset === 'custom'">
+              <p class="text-xs font-mono text-slate-500 uppercase tracking-widest mb-2">Custom System Prompt</p>
+              <textarea
+                v-model="customPrompt"
+                rows="5"
+                placeholder="Describe the agent's persona and negotiation approach…"
+                class="w-full bg-transparent border border-white/10 px-3 py-2 text-sm text-slate-200 placeholder-slate-700 focus:outline-none focus:border-emerald-800 resize-none"
+              />
+            </div>
+
+            <div v-if="isPersonaSelected" class="flex items-center gap-2">
+              <input
+                id="force-rerun"
+                v-model="forceRerun"
+                type="checkbox"
+                class="accent-emerald-500 cursor-pointer"
+              />
+              <label for="force-rerun" class="text-xs text-slate-500 cursor-pointer select-none">
+                Force re-run (overwrite cached session)
+              </label>
+            </div>
+          </div>
+
+          <!-- Empty state while running but no messages yet -->
           <div
-            v-if="messages.length === 0"
+            v-else-if="messages.length === 0"
             class="flex h-full items-center justify-center text-slate-600 text-sm font-mono"
           >
-            Press Start to begin the benchmark run
+            Starting benchmark run…
           </div>
 
           <template v-else>
