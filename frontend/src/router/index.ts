@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import CrisisDashboard from "../views/CrisisDashboard.vue";
+import AgentBenchmark from "../views/AgentBenchmark.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -7,9 +8,14 @@ const router = createRouter({
     {
       path: "/",
       name: "crisis-dashboard",
-      component: CrisisDashboard
-    }
-  ]
+      component: CrisisDashboard,
+    },
+    {
+      path: "/benchmark",
+      name: "agent-benchmark",
+      component: AgentBenchmark,
+    },
+  ],
 });
 
 export default router;
