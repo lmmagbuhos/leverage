@@ -127,6 +127,28 @@ open http://localhost:3000
        └─────────────┘ └────────┘ └────────────┘
 ```
 
+## Screenshots
+
+**Session lobby — choose Human Training or Observer mode**
+![Session lobby](screenshots/viber_image_2026-05-27_18-21-38-984.png)
+
+**Agent persona selection — all 6 sales personas with BCSM star ratings**
+![Persona selection](screenshots/viber_image_2026-05-27_18-22-06-511.jpg)
+
+**Stage unlocked — Stage 1 Active Listening scored 3/3, advancing to Empathy**
+![Stage unlocked](screenshots/viber_image_2026-05-27_18-23-43-467.png)
+
+**Live negotiation — Stage 5 Surrender, Bato COMMITTED, score 13/15**
+![Live negotiation](screenshots/viber_image_2026-05-27_18-21-08-599.png)
+
+**Surrender executed — 5/5 stages, 13/15 total score, ranked #1**
+![Surrender executed](screenshots/viber_image_2026-05-27_18-22-45-362.png)
+
+**Leaderboard — Human vs Agent rankings across all sessions**
+![Leaderboard](screenshots/viber_image_2026-05-27_18-23-04-549.png)
+
+---
+
 ## Team
 
 **ODVI** — Mors · Loi · Mann · Renz
