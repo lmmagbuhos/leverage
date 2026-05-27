@@ -3,6 +3,8 @@ import dotenv from "dotenv";
 import express, { Request, Response } from "express";
 import { RtcRole, RtcTokenBuilder } from "agora-token";
 import { GameStage, getGameState, updateGameState } from "./db";
+import { createSession, getSession, processTurn, runBcsmEvaluation } from "./benchmark";
+import { createOpenAIClient } from "./agent";
 
 dotenv.config();
 
@@ -73,6 +75,53 @@ app.post("/api/game/state", async (req: Request, res: Response) => {
   });
 
   return res.json(state);
+});
+
+// ─── Lazy OpenAI client ───────────────────────────────────────────────────────
+let _openai: ReturnType<typeof createOpenAIClient> | null = null;
+function getOpenAI(): ReturnType<typeof createOpenAIClient> {
+  if (!_openai) _openai = createOpenAIClient();
+  return _openai;
+}
+
+// ─── Benchmark endpoints ──────────────────────────────────────────────────────
+
+app.post("/api/benchmark/start", (req: Request, res: Response) => {
+  const agentLabel = String(req.body.agentLabel || "Test Agent");
+  const session = createSession(agentLabel);
+  return res.json({
+    sessionId: session.sessionId,
+    stage: session.currentStage,
+    status: session.status,
+  });
+});
+
+app.post("/api/benchmark/turn", async (req: Request, res: Response) => {
+  const sessionId = String(req.body.sessionId || "");
+  const session = getSession(sessionId);
+  if (!session) {
+    return res.status(404).json({ error: "Session not found" });
+  }
+  if (session.status === "completed" || session.status === "failed") {
+    return res.status(400).json({ error: `Session already ${session.status}` });
+  }
+  const result = await processTurn(getOpenAI(), session);
+  return res.json(result);
+});
+
+app.post("/api/benchmark/evaluate", async (req: Request, res: Response) => {
+  const sessionId = String(req.body.sessionId || "");
+  const session = getSession(sessionId);
+  if (!session) {
+    return res.status(404).json({ error: "Session not found" });
+  }
+  const evaluation = await runBcsmEvaluation(getOpenAI(), session);
+  session.evaluation = evaluation;
+  evaluation.stages.forEach((s) => {
+    const existing = session.stageResults.find((r) => r.stage === s.stage);
+    if (existing) existing.score = s.score;
+  });
+  return res.json(evaluation);
 });
 
 app.use(
